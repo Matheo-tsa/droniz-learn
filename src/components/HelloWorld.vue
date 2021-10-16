@@ -1,58 +1,159 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div class="Header">
+      <div class="Header-background"></div>
+      <div class="Header-content">
+        <div class="Header-hero">
+          <h1>{{ msg }}</h1>
+          <p>You'll be blown away with all it does</p><button class="Button">Sign up</button>
+        </div>
+        <div class="Header-visuals">
+          <div class="Iphone"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Varela+Round");
+  :root {
+    --color-1: #21d4fd;
+    --color-2: #b721ff;
+    --color-3: #08aeea;
+    --color-4: #2af598;
   }
-}
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  body {
+    font-family: 'Varela Round', sans-serif;
+  }
+  .Header {
+    position: relative;
+    height: 80vh;
+    display: block;
+  }
+  .Header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(19deg, var(--color-1), var(--color-2));
+    transform-origin: 0px 0px;
+    transform: skewY(-10deg);
+    overflow: hidden;
+    z-index: -1;
+  }
+  .Header-background::before,
+  .Header-background::after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 33.333333333333336%;
+    opacity: 0.3;
+    filter: blur(15px);
+  }
+  .Header-background::before {
+    background: var(--color-1);
+    right: 0;
+  }
+  .Header-background::after {
+    background: var(--color-2);
+    bottom: 0;
+  }
+  .Header-content {
+    text-align: center;
+    padding: 4rem 4rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 58rem) {
+    .Header-content {
+      text-align: left;
+      padding: 10rem 4rem;
+      max-width: 54rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .Header-hero h1,
+  .Header-hero p {
+    color: #fff;
+    text-shadow: 0 0.5rem 1rem rgba(50,0,100,0.1);
+  }
+  .Header-hero h1 {
+    margin: 0;
+    font-size: 3rem;
+  }
+  .Header-hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .Header-visuals {
+    position: relative;
+    margin-top: 5rem;
+    transform: rotate(-10deg);
+  }
+  @media (min-width: 58rem) {
+    .Header-visuals {
+      margin: 0;
+      transform: translateY(-5rem) rotate(-10deg);
+    }
+  }
+  .Button {
+    padding: 1.5rem 2rem;
+    border: 0;
+    color: var(--color-3);
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #fff;
+    border-radius: 3px;
+    transition: all 0.2s;
+    cursor: pointer;
+    box-shadow: 0 1.75rem 2rem -0.4rem rgba(50,0,100,0.15);
+  }
+  .Button:hover {
+    color: var(--color-4);
+    box-shadow: 0 1.75rem 3rem 0rem rgba(50,0,100,0.1);
+    transform: scale(1.05);
+  }
+  .Button:active {
+    box-shadow: 0 1.75rem 2.5rem -0.2rem rgba(50,0,100,0.125);
+    transform: scale(1.025);
+  }
+  .Iphone {
+    display: inline-block;
+    background: #fff;
+    padding: 4rem 0.6rem 0;
+    border-radius: 2rem;
+    box-shadow: -1rem 1.75rem 2rem -0.4rem rgba(50,0,100,0.1), -0.2rem 0.2rem 0.5rem rgba(50,0,100,0.05), inset 0.5rem -0.5rem 0.5rem -0.4rem rgba(50,0,100,0.1);
+    text-align: center;
+  }
+  .Iphone::before,
+  .Iphone::after {
+    content: '';
+    display: block;
+  }
+  .Iphone::before {
+    background-color: var(--color-3);
+    background-image: linear-gradient(0deg, var(--color-3) 0%, var(--color-4) 100%);
+    width: 14rem;
+    padding-top: 177.5%;
+  }
+  .Iphone::after {
+    display: inline-block;
+    margin: 0.6rem;
+    padding: 1.4rem;
+    border: 1px solid #f1f1f1;
+    border-radius: 2rem;
+    box-shadow: inset -0.05rem 0.05rem 0.5rem 0rem rgba(50,0,100,0.05);
+  }
 </style>
+
+<script>
+  export default {
+    name: 'HelloWorld',
+    props: {
+      msg: String
+    }
+  }
+</script>
