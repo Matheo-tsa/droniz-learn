@@ -1,4 +1,4 @@
-# droniz
+# my-app
 
 ## Project setup
 ```
