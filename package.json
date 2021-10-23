@@ -2,15 +2,31 @@
   "name": "droniz",
   "version": "0.1.0",
   "private": true,
+  "adonis-version": "4.1.0",
+  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "main": "index.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "node server.js",
+    "test": "node ace test"
   },
+  "keywords": [
+    "adonisjs",
+    "adonis-app"
+  ],
   "dependencies": {
-    "@adonisjs/lucid": "^10.0.0",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/auth": "^3.0.7",
+    "@adonisjs/bodyparser": "~2.0.9",
+    "@adonisjs/cors": "^1.0.7",
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/framework": "^5.0.9",
+    "@adonisjs/ignitor": "^2.0.8",
+    "@adonisjs/lucid": "^6.1.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -20,6 +36,9 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
+  },
+  "autoload": {
+    "App": "./app"
   },
   "eslintConfig": {
     "root": true,
@@ -33,7 +52,10 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {},
+    "globals": {
+      "use": "readonly"
+    }
   },
   "browserslist": [
     "> 1%",
